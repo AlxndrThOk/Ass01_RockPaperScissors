@@ -4,8 +4,8 @@ public class Main
     public static void main(String[] args)
     {
         // variables
-        String playerA = "";
-        String playerB = "";
+        String playerA;
+        String playerB;
         String playAgain = "Y";
 
         Scanner in = new Scanner(System.in);
@@ -14,29 +14,30 @@ public class Main
         while (playAgain.equalsIgnoreCase("Y"))
         {
 
-            // checking for valid move
-            Boolean validPlayerA = false;
-            Boolean validPlayerB = false;
-            while (!(validPlayerA))
+            // reset player moves
+            playerA = "";
+            playerB = "";
+            // checking for valid
+            while (!(playerA.equalsIgnoreCase("R") || playerA.equalsIgnoreCase("P") || playerA.equalsIgnoreCase("S")))
             {
                 System.out.println("Player A what do you choose? (R/P/S)");
                 playerA = in.nextLine();
                 if (playerA.equalsIgnoreCase("R") || playerA.equalsIgnoreCase("P") || playerA.equalsIgnoreCase("S"))
                 {
-                    validPlayerA = true;
+                    break;
                 }
                 else
                 {
                     System.out.println("Please enter a valid move");
                 }
             }
-            while (!(validPlayerB))
+            while (!(playerB.equalsIgnoreCase("R") || playerB.equalsIgnoreCase("P") || playerB.equalsIgnoreCase("S")))
             {
                 System.out.println("Player B what do you choose? (R/P/S)");
                 playerB = in.nextLine();
                 if (playerB.equalsIgnoreCase("R") || playerB.equalsIgnoreCase("P") || playerB.equalsIgnoreCase("S"))
                 {
-                    validPlayerB = true;
+                    break;
                 }
                 else
                 {
@@ -92,14 +93,14 @@ public class Main
             }
 
             //valid play again entry
-            Boolean validPlayAgain = false;
-            while (!(validPlayAgain))
+            playAgain = "";
+            while (!(playAgain.equalsIgnoreCase("Y") || playAgain.equalsIgnoreCase("N")))
             {
                 System.out.println("Would you like to play again? (Y/N)");
                 playAgain = in.nextLine();
                 if (playAgain.equalsIgnoreCase("Y") || playAgain.equalsIgnoreCase("N"))
                 {
-                    validPlayAgain = true;
+                    break;
                 }
                 else
                 {
